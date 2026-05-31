@@ -46,6 +46,7 @@ var zakki = new ZakkiStoreClient(
     baseUrl: "https://qris.zakki.store", // Domain custom/resmi
     token: "API_TOKEN_MEMBER_ANDA",
     iduser: "IBO99",
+    email: "member@gmail.com",
     pin: "123456",                       // Wajib untuk tabung & tarik
     autoWithdraw: true                   // Aktifkan auto-withdrawal saldo bank!
 );
