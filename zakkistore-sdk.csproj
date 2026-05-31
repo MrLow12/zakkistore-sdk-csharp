@@ -4,13 +4,17 @@
     <AssemblyName>ZakkiStore.SDK</AssemblyName>
     <RootNamespace>ZakkiStore</RootNamespace>
     <PackageId>zakkistore-sdk</PackageId>
-    <Version>1.0.0</Version>
+    <Version>1.0.1</Version>
     <Authors>ZakkiXD</Authors>
     <Description>Official .NET SDK Client Library for Zakki Store B2B API Gateway</Description>
     <PackageProjectUrl>https://github.com/MrLow12/zakkistore-sdk-csharp</PackageProjectUrl>
     <RepositoryUrl>https://github.com/MrLow12/zakkistore-sdk-csharp</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="System.Text.Json" Version="8.0.4" />
   </ItemGroup>
