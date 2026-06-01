@@ -4,7 +4,7 @@
     <AssemblyName>ZakkiStore.SDK</AssemblyName>
     <RootNamespace>ZakkiStore</RootNamespace>
     <PackageId>zakkistore-sdk</PackageId>
-    <Version>1.0.3</Version>
+    <Version>1.0.4</Version>
     <Authors>ZakkiXD</Authors>
     <Description>Official .NET SDK Client Library for Zakki Store B2B API Gateway</Description>
     <PackageProjectUrl>https://github.com/MrLow12/zakkistore-sdk-csharp</PackageProjectUrl>

@@ -65,50 +65,60 @@ Jika opsi `autoWithdraw: true` diaktifkan, SDK akan memicu penarikan dana VA ban
 
 ---
 
-## 📑 Daftar Referensi Metode Lengkap
+## 📑 Daftar Referensi Metode Lengkap & Struktur Pengelompokan (36 Fungsi Resmi)
 
-SDK C# ini mendukung secara penuh seluruh **25 fungsi resmi** dengan nama dan perilaku yang konsisten dengan SDK versi Node.js (NPM), Python (PyPI), PHP (Composer), dan Go:
+Seluruh fungsi yang didukung oleh SDK ini dikelompokkan secara rapi ke dalam 7 kategori layanan utama demi mempermudah pemahaman dan integrasi:
 
-### 1. Payment Gateway (QRIS Top Up)
-*   `zakki.TopupAsync(int nominal)` — Membuat QRIS dinamis instan dengan nominal kode unik.
-*   `zakki.CektopupAsync(string idtopup)` — Cek status pembayaran QRIS.
-*   `zakki.CancelAsync(string idTransaksi, bool allPending)` — Batalkan transaksi pending.
+### 1. ⚡ Layanan Payment Gateway (QRIS Topup) — [4 Fungsi]
+*   **`await zakki.TopupAsync(nominal)`** — Membuat tiket pembayaran QRIS dinamis instan dengan nominal kode unik.
+*   **`await zakki.CektopupAsync(idtopup)`** — Mengecek status pembayaran tiket QRIS tertentu secara real-time.
+*   **`await zakki.MytopupAsync()`** — Mengambil seluruh riwayat transaksi topup QRIS akun Anda.
+*   **`await zakki.CancelAsync(idTransaksi, allPending)`** — Membatalkan satu atau seluruh tiket topup pending.
 
-### 2. Transaksi H2H
-*   `zakki.ListkodeAsync(string jenis, string productType)` — Katalog kode produk aktif.
-*   `zakki.H2HAsync(H2HParams paramsObj)` — Mengirim order transaksi H2H.
-*   `zakki.H2HSimpleAsync(string kode, string tujuan, string refID)` — Versi sederhana posisional untuk memicu order H2H.
-*   `zakki.Cekh2hAsync(string idTrx)` — Cek detail status pengisian, SN, dan harga beli.
-*   `zakki.Myh2hAsync()` — Mengambil 20 riwayat pembelian H2H terupdate.
+### 2. 🏪 Layanan Transaksi Host-to-Host (H2H) — [4 Fungsi]
+*   **`await zakki.ListkodeAsync(jenis, productType)`** — Mengambil katalog produk prabayar/pascabayar aktif beserta daftar harga beli.
+*   **`await zakki.H2HAsync(params)`** — Mengirimkan order transaksi H2H (pulsa, paket data, PLN kustom, dll).
+*   **`await zakki.Cekh2hAsync(idTrx)`** — Mengecek status transaksi, Serial Number (SN), dan harga beli riil dari order H2H.
+*   **`await zakki.Myh2hAsync()`** — Mengambil 20 riwayat transaksi H2H terupdate milik akun Anda.
 
-### 3. Perbankan & Transfer VA
-*   `zakki.CheckbankAsync()` — Cek saldo, VA member, mutasi, dan pemicu Auto-Withdraw.
-*   `zakki.ChecknameAsync(string number)` — Verifikasi nama asli pemilik VA Bank.
-*   `zakki.TransferAsync(TransferParams paramsObj)` — Transfer saldo antar Virtual Account.
-*   `zakki.TransferSimpleAsync(string to, int amount)` — Versi sederhana posisional untuk transfer saldo.
-*   `zakki.TabungAsync(int jumlah)` — Menabung saldo ke Bank (butuh PIN).
-*   `zakki.TarikAsync(int jumlah)` — Menarik dana tabungan ke saldo aplikasi (butuh PIN).
-*   `zakki.CheckmutasiAsync(string mutasiType)` — Riwayat mutasi Tarik/Tabung.
+### 3. 🏦 Layanan Perbankan & Transfer Saldo VA — [8 Fungsi]
+*   **`await zakki.CheckbankAsync()`** — Memeriksa detail Virtual Account (VA), saldo bank VA, serta memicu Auto-Withdraw jika diaktifkan.
+*   **`await zakki.ChecknameAsync(number)`** — Memverifikasi nama asli pemilik rekening Virtual Account tujuan sebelum melakukan transfer.
+*   **`await zakki.TransferAsync(params)`** — Mengirimkan saldo antar-VA member secara instan dan bebas biaya admin.
+*   **`await zakki.TabungAsync(jumlah)`** — Menyetorkan saldo aktif aplikasi ke rekening bank Virtual Account terhubung Anda.
+*   **`await zakki.TarikAsync(jumlah)`** — Menarik dana dari bank Virtual Account ke saldo aktif aplikasi Zakki Store Anda.
+*   **`await zakki.CheckmutasiAsync(mutasiType)`** — Melihat riwayat mutasi tabung/tarik saldo bank VA (`all`, `tarik`, `tabung`).
+*   **`await zakki.ChecktransferAsync(idtransfer)`** — Mengecek status pengiriman dana transfer tertentu secara detail.
+*   **`await zakki.MytransferAsync(type)`** — Mengambil riwayat pengiriman dan penerimaan transfer saldo (`all`, `kirim`, `terima`).
 
-### 4. Noktel Marketplace (OTP Virtual)
-*   `zakki.NoktelStokAsync()` — Cek stok nomor virtual yang ready.
-*   `zakki.NoktelBuyAsync(string category)` — Membeli nomor virtual baru untuk OTP.
-*   `zakki.NoktelGetOtpAsync(string accountID)` — Menarik kode OTP Telegram secara real-time.
-*   `zakki.NoktelCancelAsync(string invoiceID)` — Membatalkan nomor yang pending OTP & auto-refund.
-*   `zakki.NoktelHistoryAsync()` — Mengambil daftar riwayat pembelian Noktel.
+### 4. 📱 Layanan Noktel Marketplace (OTP Virtual) — [5 Fungsi]
+*   **`await zakki.NoktelStokAsync()`** — Memeriksa ketersediaan stok nomor virtual aktif per kategori layanan/aplikasi.
+*   **`await zakki.NoktelBuyAsync(category)`** — Membeli nomor virtual baru untuk penerimaan kode verifikasi/OTP.
+*   **`await zakki.NoktelGetOtpAsync(accountId)`** — Mengambil kode verifikasi/OTP yang masuk ke nomor virtual secara real-time.
+*   **`await zakki.NoktelCancelAsync(invoiceId)`** — Membatalkan order nomor virtual yang pending OTP dan memicu auto-refund saldo.
+*   **`await zakki.NoktelHistoryAsync()`** — Mengambil daftar riwayat lengkap pemesanan nomor virtual.
 
-### 5. Reward Komputasi & Game
-*   `zakki.CekminingAsync()` — Cek status kesulitan global, block reward, dan miner aktif.
-*   `zakki.MyminingAsync()` — Riwayat koin mining SHA256 milik akun Anda.
-*   `zakki.CekgachaAsync()` — Statistik poin, kemenangan, dan keuntungan gacha member.
+### 5. ⛏️ Layanan Reward Komputasi SHA-256 (Mining) & Game — [5 Fungsi]
+*   **`await zakki.MiningStartAsync()`** — Meminta challenge penambangan SHA-256 serta target kesulitan (difficulty) dari server.
+*   **`await zakki.MiningSubmitAsync(nonce, signature)`** — Mengirimkan hasil kerja hashing SHA-256 (Proof-of-Work) untuk mendapatkan koin.
+*   **`await zakki.CekminingAsync(idmining)`** — Mengecek status audit dan persetujuan dari blok mining yang telah Anda selesaikan.
+*   **`await zakki.MyminingAsync()`** — Melihat riwayat penambangan koin dan total reward hashing akun Anda.
+*   **`await zakki.CekgachaAsync()`** — Mengecek jumlah tiket gacha, riwayat kemenangan, dan detail koin keberuntungan Anda.
 
-### 6. Keamanan & Utilitas
-*   `zakki.WhitelistipAsync(string ip)` — Whitelist IP server Anda untuk otorisasi API H2H.
-*   `zakki.DelwhitelistipAsync(string ip)` — Hapus IP server dari whitelist.
-*   `zakki.LeaderboardAsync(int limit, string period)` — Mengambil peringkat sultan topup teraktif.
-*   `zakki.StatusAsync()` — Informasi beban CPU, metrik finansial, dan kesehatan sistem.
+### 6. 🔒 Layanan Keamanan IP & Utilitas — [6 Fungsi]
+*   **`await zakki.WhitelistipAsync(ip)`** — Mendaftarkan IP server/host Anda agar diizinkan melakukan transaksi H2H via API (Maksimal 3 IP).
+*   **`await zakki.DelwhitelistipAsync(ip)`** — Menghapus alamat IP terdaftar dari whitelist API.
+*   **`await zakki.CekmyipAsync()`** — Mendeteksi alamat IP publik host/server Anda saat ini yang terbaca oleh sistem.
+*   **`await zakki.CekipAsync(ip)`** — Mengecek detail status IP whitelisting tertentu.
+*   **`await zakki.LeaderboardAsync(limit, period)`** — Melihat daftar Sultan topup teraktif secara global.
+*   **`await zakki.StatusAsync()`** — Memeriksa beban CPU server, statistik finansial global, dan kesehatan sistem.
 
----
+### 7. 🔗 Layanan Webhook Callback & Notifikasi Bot — [4 Fungsi]
+*   **`await zakki.SetcallbackAsync(site)`** — Memasang URL callback real-time untuk menerima laporan status transaksi H2H.
+*   **`await zakki.DelcallbackAsync()`** — Menghapus URL callback yang terpasang di sistem.
+*   **`await zakki.SetnotifbotAsync(telegramId)`** — Memasang ID Telegram Anda untuk menerima notifikasi otomatis transaksi sukses/gagal.
+*   **`await zakki.DelnotifbotAsync()`** — Menonaktifkan bot notifikasi Telegram.
+
 
 ## 🛡️ Protokol Keamanan API
 
