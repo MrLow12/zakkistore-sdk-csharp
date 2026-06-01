@@ -314,14 +314,31 @@ namespace ZakkiStore
         // --- 5. REWARD KOMPUTASI & GAME ---
         // ==========================================================
 
-        public async Task<Dictionary<string, object>> CekminingAsync()
+        public async Task<Dictionary<string, object>> CekminingAsync(string idmining)
         {
-            return await RequestAsync("/cekmining", HttpMethod.Get, new { token = _token });
+            if (string.IsNullOrEmpty(idmining))
+                throw new ArgumentException("Parameter idmining wajib diisi.");
+            return await RequestAsync("/cekmining", HttpMethod.Get, new { idmining = idmining.Trim() });
         }
 
         public async Task<Dictionary<string, object>> MyminingAsync()
         {
             return await RequestAsync("/mymining", HttpMethod.Get, new { token = _token });
+        }
+
+        public async Task<Dictionary<string, object>> MiningStartAsync()
+        {
+            return await RequestAsync("/mining/start", HttpMethod.Get, new { token = _token });
+        }
+
+        public async Task<Dictionary<string, object>> MiningSubmitAsync(object nonce, string signature)
+        {
+            if (nonce == null)
+                throw new ArgumentException("Parameter nonce wajib disertakan.");
+            if (string.IsNullOrEmpty(signature))
+                throw new ArgumentException("Parameter signature wajib disertakan.");
+
+            return await RequestAsync("/mining/submit", HttpMethod.Post, new { token = _token, nonce, signature });
         }
 
         public async Task<Dictionary<string, object>> CekgachaAsync()
@@ -351,6 +368,55 @@ namespace ZakkiStore
         public async Task<Dictionary<string, object>> StatusAsync()
         {
             return await RequestAsync("/status", HttpMethod.Get);
+        }
+
+        // ==========================================================
+        // --- 7. METODE INTEGRASI BARU ---
+        // ==========================================================
+
+        public async Task<Dictionary<string, object>> SetcallbackAsync(string site)
+        {
+            return await RequestAsync("/setcallback", HttpMethod.Get, new { token = _token, site = site.Trim() });
+        }
+
+        public async Task<Dictionary<string, object>> DelcallbackAsync()
+        {
+            return await RequestAsync("/delcallback", HttpMethod.Get, new { token = _token });
+        }
+
+        public async Task<Dictionary<string, object>> SetnotifbotAsync(string telegramId)
+        {
+            return await RequestAsync("/setnotifbot", HttpMethod.Get, new { token = _token, id = telegramId.Trim() });
+        }
+
+        public async Task<Dictionary<string, object>> DelnotifbotAsync()
+        {
+            return await RequestAsync("/delnotifbot", HttpMethod.Get, new { token = _token });
+        }
+
+        public async Task<Dictionary<string, object>> ChecktransferAsync(string idtransfer)
+        {
+            return await RequestAsync("/checktransfer", HttpMethod.Get, new { idtransfer = idtransfer.Trim() });
+        }
+
+        public async Task<Dictionary<string, object>> MytransferAsync(string type = "all")
+        {
+            return await RequestAsync("/mytransfer", HttpMethod.Get, new { token = _token, type = type.Trim() });
+        }
+
+        public async Task<Dictionary<string, object>> MytopupAsync()
+        {
+            return await RequestAsync("/mytopup", HttpMethod.Get, new { token = _token });
+        }
+
+        public async Task<Dictionary<string, object>> CekmyipAsync()
+        {
+            return await RequestAsync("/cekmyip", HttpMethod.Get);
+        }
+
+        public async Task<Dictionary<string, object>> CekipAsync(string ip)
+        {
+            return await RequestAsync("/cekip", HttpMethod.Get, new { ip = ip.Trim() });
         }
     }
 }

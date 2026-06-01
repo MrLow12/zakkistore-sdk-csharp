@@ -57,7 +57,7 @@ var zakki = new ZakkiStoreClient(
 ## 🛠️ Fitur Unggulan
 
 ### 🔄 Auto-Withdraw Saldo VA
-Jika opsi `autoWithdraw: true` diaktifkan, SDK akan memicu penarikan dana VA bank otomatis secara *real-time* menjadi saldo utama aplikasi (Zakki Store) ketika fungsi `zakki.CheckbankAsync()` dipanggil.
+Jika opsi `autoWithdraw: true` diaktifkan, SDK akan memicu penarikan dana VA bank otomatis secara *real-time* menjadi saldo utama aplikasi zakki store ketika fungsi `zakki.CheckbankAsync()` dipanggil.
 
 ### 💡 Dual-Flow Pascabayar & Bebas Nominal
 *   **Pascabayar (PLN/BPJS/PDAM):** Inquiry tagihan terlebih dahulu, lalu bayar dengan format tujuan `[ID_Pelanggan].[Nominal_Tagihan]` (Contoh: `122345678901.150000`).
