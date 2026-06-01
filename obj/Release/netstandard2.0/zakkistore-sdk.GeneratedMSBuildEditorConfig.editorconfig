@@ -1,0 +1,5 @@
+is_global = true
+build_property.RootNamespace = ZakkiStore
+build_property.ProjectDir = /home/qris12/htdocs/qris.zakki.store/sdk-csharp/
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 

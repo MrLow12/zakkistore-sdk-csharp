@@ -1,0 +1,11 @@
+/home/qris12/htdocs/qris.zakki.store/sdk-csharp/obj/Release/netstandard2.0/zakkistore-sdk.csproj.AssemblyReference.cache
+/home/qris12/htdocs/qris.zakki.store/sdk-csharp/obj/Release/netstandard2.0/zakkistore-sdk.GeneratedMSBuildEditorConfig.editorconfig
+/home/qris12/htdocs/qris.zakki.store/sdk-csharp/obj/Release/netstandard2.0/zakkistore-sdk.AssemblyInfoInputs.cache
+/home/qris12/htdocs/qris.zakki.store/sdk-csharp/obj/Release/netstandard2.0/zakkistore-sdk.AssemblyInfo.cs
+/home/qris12/htdocs/qris.zakki.store/sdk-csharp/obj/Release/netstandard2.0/zakkistore-sdk.csproj.CoreCompileInputs.cache
+/home/qris12/htdocs/qris.zakki.store/sdk-csharp/obj/Release/netstandard2.0/zakkistore-sdk.sourcelink.json
+/home/qris12/htdocs/qris.zakki.store/sdk-csharp/bin/Release/netstandard2.0/ZakkiStore.SDK.deps.json
+/home/qris12/htdocs/qris.zakki.store/sdk-csharp/bin/Release/netstandard2.0/ZakkiStore.SDK.dll
+/home/qris12/htdocs/qris.zakki.store/sdk-csharp/bin/Release/netstandard2.0/ZakkiStore.SDK.pdb
+/home/qris12/htdocs/qris.zakki.store/sdk-csharp/obj/Release/netstandard2.0/ZakkiStore.SDK.dll
+/home/qris12/htdocs/qris.zakki.store/sdk-csharp/obj/Release/netstandard2.0/ZakkiStore.SDK.pdb
