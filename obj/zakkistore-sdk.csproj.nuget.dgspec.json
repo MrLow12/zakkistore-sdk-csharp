@@ -5,7 +5,7 @@
   },
   "projects": {
     "/home/qris12/htdocs/qris.zakki.store/sdk-csharp/zakkistore-sdk.csproj": {
-      "version": "1.0.1",
+      "version": "1.0.4",
       "restore": {
         "projectUniqueName": "/home/qris12/htdocs/qris.zakki.store/sdk-csharp/zakkistore-sdk.csproj",
         "projectName": "zakkistore-sdk",

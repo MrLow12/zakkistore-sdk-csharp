@@ -7,7 +7,7 @@
   "targets": {
     ".NETStandard,Version=v2.0": {},
     ".NETStandard,Version=v2.0/": {
-      "ZakkiStore.SDK/1.0.1": {
+      "ZakkiStore.SDK/1.0.4": {
         "dependencies": {
           "NETStandard.Library": "2.0.3",
           "System.Text.Json": "8.0.4"
@@ -113,7 +113,7 @@
     }
   },
   "libraries": {
-    "ZakkiStore.SDK/1.0.1": {
+    "ZakkiStore.SDK/1.0.4": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

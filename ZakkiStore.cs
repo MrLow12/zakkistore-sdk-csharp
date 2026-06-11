@@ -126,6 +126,11 @@ namespace ZakkiStore
             return await RequestAsync("/cektopup", HttpMethod.Get, new { idtopup });
         }
 
+        public string Cektopup2(string idtopup)
+        {
+            return $"{_baseUrl}/cektopup2?idtopup={System.Uri.EscapeDataString(idtopup)}";
+        }
+
         public async Task<Dictionary<string, object>> CancelAsync(string idTransaksi = null, bool allPending = false)
         {
             var payload = new Dictionary<string, object> { { "token", _token } };

@@ -65,13 +65,14 @@ Jika opsi `autoWithdraw: true` diaktifkan, SDK akan memicu penarikan dana VA ban
 
 ---
 
-## 📑 Daftar Referensi Metode Lengkap & Struktur Pengelompokan (36 Fungsi Resmi)
+## 📑 Daftar Referensi Metode Lengkap & Struktur Pengelompokan (37 Fungsi Resmi)
 
 Seluruh fungsi yang didukung oleh SDK ini dikelompokkan secara rapi ke dalam 7 kategori layanan utama demi mempermudah pemahaman dan integrasi:
 
-### 1. ⚡ Layanan Payment Gateway (QRIS Topup) — [4 Fungsi]
+### 1. ⚡ Layanan Payment Gateway (QRIS Topup) — [5 Fungsi]
 *   **`await zakki.TopupAsync(nominal)`** — Membuat tiket pembayaran QRIS dinamis instan dengan nominal kode unik.
 *   **`await zakki.CektopupAsync(idtopup)`** — Mengecek status pembayaran tiket QRIS tertentu secara real-time.
+*   **`zakki.Cektopup2(idtopup)`** — Mendapatkan URL gambar struk digital dinamis (hologram receipt) berformat PNG.
 *   **`await zakki.MytopupAsync()`** — Mengambil seluruh riwayat transaksi topup QRIS akun Anda.
 *   **`await zakki.CancelAsync(idTransaksi, allPending)`** — Membatalkan satu atau seluruh tiket topup pending.
 

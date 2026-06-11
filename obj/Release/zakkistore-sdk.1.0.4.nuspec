@@ -2,13 +2,14 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>zakkistore-sdk</id>
-    <version>1.0.0</version>
+    <version>1.0.4</version>
     <authors>ZakkiXD</authors>
     <license type="expression">MIT</license>
     <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <readme>README.md</readme>
     <projectUrl>https://github.com/MrLow12/zakkistore-sdk-csharp</projectUrl>
     <description>Official .NET SDK Client Library for Zakki Store B2B API Gateway</description>
-    <repository type="git" url="https://github.com/MrLow12/zakkistore-sdk-csharp" commit="f4b8384ca76cf844b199cc51d687625ffa691230" />
+    <repository type="git" url="https://github.com/MrLow12/zakkistore-sdk-csharp" commit="7625a28bc603466c11cdd855bde6807c6fe87f01" />
     <dependencies>
       <group targetFramework="net6.0">
         <dependency id="System.Text.Json" version="8.0.4" exclude="Build,Analyzers" />
@@ -21,5 +22,6 @@
   <files>
     <file src="/home/qris12/htdocs/qris.zakki.store/sdk-csharp/bin/Release/net6.0/ZakkiStore.SDK.dll" target="lib/net6.0/ZakkiStore.SDK.dll" />
     <file src="/home/qris12/htdocs/qris.zakki.store/sdk-csharp/bin/Release/netstandard2.0/ZakkiStore.SDK.dll" target="lib/netstandard2.0/ZakkiStore.SDK.dll" />
+    <file src="/home/qris12/htdocs/qris.zakki.store/sdk-csharp/README.md" target="/README.md" />
   </files>
 </package>
